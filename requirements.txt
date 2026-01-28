@@ -1,0 +1,17 @@
+transformers
+diffusers
+peft
+opencv-python
+protobuf
+sentencepiece
+gradio
+jupyter
+torchao
+imageio
+
+lightning
+datasets
+torchvision
+prodigyopt
+wandb
+einops

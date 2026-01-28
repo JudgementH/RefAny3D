@@ -1,0 +1,13 @@
+.vscode/
+ckpts/
+__pycache__/
+
+
+inference/
+model/
+data/
+scripts/
+tools/
+train/
+
+demo.py
