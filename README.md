@@ -1,11 +1,12 @@
 # RefAny3D: 3D Asset-Referenced Diffusion Models for Image Generation
 
 <a href='https://judgementh.github.io/RefAny3D'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;
+<a href="https://huggingface.co/JudgementH/RefAny3D"><img src="https://img.shields.io/badge/🤗_HuggingFace-Model-ffbd45.svg" alt="HuggingFace"></a>
 
 ![teaser](assets/teaser.png)
 
 ## TODO List
-- [ ] Inference code and pretrained models.
+- [x] Inference code and pretrained models.
 - [ ] Training code.
 - [ ] Training dataset.
 

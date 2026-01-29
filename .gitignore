@@ -1,13 +1,8 @@
 .vscode/
-ckpts/
 __pycache__/
 
 
-inference/
-model/
+model/train_flux/
 data/
 scripts/
-tools/
 train/
-
-demo.py
