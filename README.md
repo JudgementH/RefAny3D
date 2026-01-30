@@ -13,13 +13,32 @@
 ## Quickstart
 
 ### Create environment
-1. Clone the repository and create conda environment: 
+1. Clone the repository and create a conda environment: 
 ```
 git clone https://github.com/JudgementH/RefAny3D.git
 conda create -n r3d python=3.10
 conda activate r3d
 ```
-2. Requirements installation
+2. Install requirements
 ```
 pip install -r requirements.txt
+```
+
+
+### Inference
+```
+python demo.py \
+    --prompt "<text-prompt>" \
+    --glb_path "<glb-file-path>" \
+    --output_dir "<output-dir>"
+
+```
+
+Alternatively, we provide some example scripts:
+
+```
+bash scripts/demo_chair.sh
+
+bash scripts/demo_traffic_cone.sh
+
 ```

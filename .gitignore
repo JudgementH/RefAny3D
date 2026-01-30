@@ -3,6 +3,7 @@ __pycache__/
 
 
 model/train_flux/
-data/
-scripts/
+output/
 train/
+
+test_scripts/
