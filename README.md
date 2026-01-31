@@ -1,5 +1,6 @@
 # RefAny3D: 3D Asset-Referenced Diffusion Models for Image Generation
 
+<a href='https://arxiv.org/abs/2601.22094'><img src='https://img.shields.io/badge/arXiv-2601.22094-b31b1b.svg'></a> &nbsp;
 <a href='https://judgementh.github.io/RefAny3D'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;
 <a href="https://huggingface.co/JudgementH/RefAny3D"><img src="https://img.shields.io/badge/🤗_HuggingFace-Model-ffbd45.svg" alt="HuggingFace"></a>
 
