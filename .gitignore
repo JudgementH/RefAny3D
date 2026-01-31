@@ -2,8 +2,8 @@
 __pycache__/
 
 
-model/train_flux/
 output/
-train/
+logs/
+runs/
 
 test_scripts/

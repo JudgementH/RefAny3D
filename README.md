@@ -7,8 +7,8 @@
 
 ## TODO List
 - [x] Inference code and pretrained models.
-- [ ] Training code.
-- [ ] Training dataset.
+- [x] Training code.
+- [ ] Training dataset.(Uploading)
 
 ## Quickstart
 
@@ -40,5 +40,34 @@ Alternatively, we provide some example scripts:
 bash scripts/demo_chair.sh
 
 bash scripts/demo_traffic_cone.sh
+```
+
+## Training
+
+### Download Dataset
+
+First, download the training dataset and organize it in the appropriate directory structure.
+
+### Configure Training
+
+1. Edit the training configuration file `train/config/train_refany3d.yaml`:
+   - Update `json_file` path under `train.dataset` section (default: `"./dataset/meta_data.json"`)
+   - Update `data_root_path` path under `train.dataset` section (default: `"./dataset"`)
+
+   Example configuration:
+   ```yaml
+   train:
+     dataset:
+       json_file: "<path-to-your-meta-data.json>"
+       data_root_path: "<path-to-your-dataset-root>"
+   ```
+
+### Run Training
+
+Execute the training script:
 
 ```
+bash train/scripts/train_refany3d.sh
+```
+
+**Note:** The training script uses `accelerate` with 8 GPU processes by default. You can modify the number of processes in `train/scripts/train_refany3d.sh` by adjusting the `--num_processes` parameter.

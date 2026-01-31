@@ -1,0 +1,57 @@
+flux_path: "black-forest-labs/FLUX.1-dev"
+dtype: "bfloat16"
+
+model:
+  aux_token: True
+  ref_num: 8
+  independent_condition: false
+  pe_config:
+    rgb_cond: [0, -32]
+    coord_cond: [0, -32]
+    coord_output: [0, 0]
+
+train:
+  accumulate_grad_batches: 1
+  dataloader_workers: 2
+  save_interval: 1000
+  print_every_n_steps: 1
+  sample_interval: 1000
+  max_steps: -1
+  gradient_checkpointing: true # (Turn off for faster training)
+  save_path: "runs"
+
+  # Specify the type of condition to use.
+  condition_type: "subject"
+  dataset:
+    json_file: "./dataset/meta_data.json"
+    data_root_path: "./dataset"
+    image_size: 512
+    center_crop: true
+    drop_text_prob: 0.1
+    drop_image_prob: 0.1
+
+  wandb:
+    project: "RefAny3D"
+  
+
+  lora_config:
+    r: 16
+    lora_alpha: 16
+    init_lora_weights: "gaussian"
+    target_modules: "(.*x_embedder|.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_v|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_out\\.0|.*(?<!single_)transformer_blocks\\.[0-9]+\\.ff\\.net\\.2|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.proj_mlp|.*single_transformer_blocks\\.[0-9]+\\.proj_out|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q|.*single_transformer_blocks\\.[0-9]+\\.attn.to_v|.*single_transformer_blocks\\.[0-9]+\\.attn.to_out)"
+    # (Uncomment the following lines to train less parameters while keeping the similar performance)
+    # target_modules: "(.*(?<!single_)transformer_blocks\\.[0-9]+\\.norm1\\.linear|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_k|.*(?<!single_)transformer_blocks\\.[0-9]+\\.attn\\.to_q|.*single_transformer_blocks\\.[0-9]+\\.norm\\.linear|.*single_transformer_blocks\\.[0-9]+\\.attn.to_k|.*single_transformer_blocks\\.[0-9]+\\.attn.to_q)"
+
+  optimizer:
+    type: "Prodigy"
+    params:
+      lr: 1
+      use_bias_correction: true
+      safeguard_warmup: true
+      weight_decay: 0.01
+
+  # (To use AdamW Optimizer, uncomment the following lines)
+  # optimizer:
+  #   type: AdamW
+  #   lr: 1e-4
+  #   weight_decay: 0.001

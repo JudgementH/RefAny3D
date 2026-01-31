@@ -659,7 +659,7 @@ def generate(
         c_guidances.append(torch.ones([1], device=device))
         c_adapters.append(condition.adapter)
         # This complement_condition will be combined with the original image.
-        # See the token integration of OminiControl2 [https://arxiv.org/abs/2503.08280]
+        # See the token integration method in related research
         if condition.is_complement:
             complement_cond = (tokens, ids)
 
