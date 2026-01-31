@@ -46,7 +46,8 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">RefAny3D: 3D Asset-Referenced Diffusion Models for Image Generation</h1>
+            <h1 class="title is-1 publication-title">RefAny3D: 3D Asset-Referenced Diffusion Models for Image Generation
+            </h1>
             <h4 style="color:#5a6268;">ICLR 2026</h4>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -85,8 +86,7 @@
               <div class="publication-links">
                 <!-- PDF Link. -->
                 <span class="link-block">
-                  <a href=""
-                    class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/pdf/2601.22094" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                     </span>
@@ -95,7 +95,7 @@
                 </span>
                 <!-- arXiv Link. -->
                 <span class="link-block">
-                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://arxiv.org/abs/2601.22094" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
@@ -110,6 +110,30 @@
                       <i class="fab fa-github"></i>
                     </span>
                     <span>Code</span>
+                  </a>
+                </span>
+
+                <!-- Hugging Face Weight Link -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/JudgementH/RefAny3D" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img width="20" alt="HuggingFace logo"
+                        src="https://haofeixu.github.io/unimatch/static/images/huggingface.png">
+                    </span>
+                    <span>Weights</span>
+                  </a>
+                </span>
+
+                <!-- Hugging Face Dataset Link -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/JudgementH/RefAny3D-Dataset" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img width="20" alt="HuggingFace logo"
+                        src="https://haofeixu.github.io/unimatch/static/images/huggingface.png">
+                    </span>
+                    <span>Dataset</span>
                   </a>
                 </span>
 
@@ -138,7 +162,19 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-                In this paper, we propose a 3D asset-referenced diffusion model for image generation, exploring how to integrate 3D assets into image diffusion models. Existing reference-based image generation methods leverage large-scale pretrained diffusion models and demonstrate strong capability in generating diverse images conditioned on a single reference image. However, these methods are limited to single-image references and cannot leverage 3D assets, constraining their practical versatility. To address this gap, we present a cross-domain diffusion model with dual-branch perception that leverages multi-view RGB images and point maps of 3D assets to jointly model their colors and canonical-space coordinates, achieving precise consistency between generated images and the 3D references. Our spatially aligned dual-branch generation architecture and domain-decoupled generation mechanism ensure the simultaneous generation of two spatially aligned but content-disentangled outputs, RGB images and point maps, linking 2D image attributes with 3D asset attributes. Experiments show that our approach effectively uses 3D assets as references to produce images consistent with the given assets, opening new possibilities for combining diffusion models with 3D content creation.
+              In this paper, we propose a 3D asset-referenced diffusion model for image generation, exploring how to
+              integrate 3D assets into image diffusion models. Existing reference-based image generation methods
+              leverage large-scale pretrained diffusion models and demonstrate strong capability in generating diverse
+              images conditioned on a single reference image. However, these methods are limited to single-image
+              references and cannot leverage 3D assets, constraining their practical versatility. To address this gap,
+              we present a cross-domain diffusion model with dual-branch perception that leverages multi-view RGB images
+              and point maps of 3D assets to jointly model their colors and canonical-space coordinates, achieving
+              precise consistency between generated images and the 3D references. Our spatially aligned dual-branch
+              generation architecture and domain-decoupled generation mechanism ensure the simultaneous generation of
+              two spatially aligned but content-disentangled outputs, RGB images and point maps, linking 2D image
+              attributes with 3D asset attributes. Experiments show that our approach effectively uses 3D assets as
+              references to produce images consistent with the given assets, opening new possibilities for combining
+              diffusion models with 3D content creation.
             </p>
           </div>
         </div>
@@ -155,9 +191,14 @@
           <h2 class="title is-3">Method</h2>
           <img src="./static/images/method.png" alt="method." />
           <div class="content has-text-justified">
-          <p>
-            <b>Overview of RefAny3D.</b> Given a 3D asset, we render multi-view inputs as conditioning signals for the diffusion model and simultaneously generate the point map of the target RGB image.  To ensure pixel-level consistency across different viewpoints, we adopt a shared positional encoding strategy. Moreover, to disentangle the RGB domain from the point map domain, we incorporate Domain-specific LoRA and Text-agnostic Attention. Benefiting from this 3D-aware disentangle ment design, our method is able to generate high-quality images that maintain strong consistency with the underlying 3D assets.
-          </p>
+            <p>
+              <b>Overview of RefAny3D.</b> Given a 3D asset, we render multi-view inputs as conditioning signals for the
+              diffusion model and simultaneously generate the point map of the target RGB image. To ensure pixel-level
+              consistency across different viewpoints, we adopt a shared positional encoding strategy. Moreover, to
+              disentangle the RGB domain from the point map domain, we incorporate Domain-specific LoRA and
+              Text-agnostic Attention. Benefiting from this 3D-aware disentangle ment design, our method is able to
+              generate high-quality images that maintain strong consistency with the underlying 3D assets.
+            </p>
           </div>
         </div>
       </div>
@@ -172,9 +213,11 @@
           <h2 class="title is-3">Data Construction Pipeline</h2>
           <img src="./static/images/data_pipeline.png" alt="data pipeline." />
           <div class="content has-text-justified">
-          <p>
-            <b>(a)</b> Data construction pipeline. We first use GroundingDINO to extract the objects of interest, then convert the images into 3D models using Hunyuan3D, and finally apply FoundationPose to estimate the poses of the 3D models in the images. <b>(b)</b> Examples from the dataset.
-          </p>
+            <p>
+              <b>(a)</b> Data construction pipeline. We first use GroundingDINO to extract the objects of interest, then
+              convert the images into 3D models using Hunyuan3D, and finally apply FoundationPose to estimate the poses
+              of the 3D models in the images. <b>(b)</b> Examples from the dataset.
+            </p>
           </div>
         </div>
       </div>
@@ -189,9 +232,9 @@
           <h2 class="title is-3">Qualitative Results</h2>
           <img src="./static/images/qualitative.png" alt="qualitative results." />
           <div class="content has-text-justified">
-          <p>
-            Qualitative comparison with other methods.
-          </p>
+            <p>
+              Qualitative comparison with other methods.
+            </p>
           </div>
         </div>
       </div>
@@ -205,9 +248,14 @@
           <h2 class="title is-3">RGB and Point Map</h2>
           <img src="./static/images/pointmap.png" alt="point map." />
           <div class="content has-text-justified">
-          <p>
-            Qualitative results with different 3D assets as references. Our method takes a given 3D mesh as input and generates both RGB images and point maps in a unified manner. By enforcing pixel-level spatial alignment between the point maps and RGB outputs, the framework ensures consistent geometry–texture correspondence across views. Moreover, the incorporation of point maps enhances the model’s 3D structural awareness, thereby improving the fidelity and consistency of image generation with respect to the reference 3D assets.
-          </p>
+            <p>
+              Qualitative results with different 3D assets as references. Our method takes a given 3D mesh as input and
+              generates both RGB images and point maps in a unified manner. By enforcing pixel-level spatial alignment
+              between the point maps and RGB outputs, the framework ensures consistent geometry–texture correspondence
+              across views. Moreover, the incorporation of point maps enhances the model’s 3D structural awareness,
+              thereby improving the fidelity and consistency of image generation with respect to the reference 3D
+              assets.
+            </p>
           </div>
         </div>
       </div>
@@ -222,9 +270,10 @@
           <h2 class="title is-3">Ablation Study</h2>
           <img src="./static/images/ablation.png" alt="ablation study." />
           <div class="content has-text-justified">
-          <p>
-            Ablation studies on different components of our method: (a) full model; (b) without Shared Positional Embedding for Cross-Domain; (c) without Text-agnostic Attention; (d) without Domain-specific LoRA.
-          </p>
+            <p>
+              Ablation studies on different components of our method: (a) full model; (b) without Shared Positional
+              Embedding for Cross-Domain; (c) without Text-agnostic Attention; (d) without Domain-specific LoRA.
+            </p>
           </div>
         </div>
       </div>
@@ -237,9 +286,9 @@
         <div class="content">
           <img src="./static/images/ablation.png" alt="ablation study." />
           <div class="content has-text-justified">
-          <p>
-            Comparisons of ablation studies and the editing-based baseline.
-          </p>
+            <p>
+              Comparisons of ablation studies and the editing-based baseline.
+            </p>
           </div>
         </div>
       </div>
