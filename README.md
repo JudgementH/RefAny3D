@@ -3,13 +3,14 @@
 <a href='https://arxiv.org/abs/2601.22094'><img src='https://img.shields.io/badge/arXiv-2601.22094-b31b1b.svg'></a> &nbsp;
 <a href='https://judgementh.github.io/RefAny3D'><img src='https://img.shields.io/badge/Project-Page-Green'></a> &nbsp;
 <a href="https://huggingface.co/JudgementH/RefAny3D"><img src="https://img.shields.io/badge/🤗_HuggingFace-Model-ffbd45.svg" alt="HuggingFace"></a>
+<a href="https://huggingface.co/datasets/JudgementH/RefAny3D-Dataset"><img src="https://img.shields.io/badge/🤗_HuggingFace-Dataset-ffbd45.svg" alt="HuggingFace"></a>
 
 ![teaser](assets/teaser.png)
 
 ## TODO List
 - [x] Inference code and pretrained models.
 - [x] Training code.
-- [ ] Training dataset.(Uploading)
+- [x] Training dataset.
 
 ## Quickstart
 
@@ -47,7 +48,7 @@ bash scripts/demo_traffic_cone.sh
 
 ### Download Dataset
 
-First, download the training dataset and organize it in the appropriate directory structure.
+First, download the training [dataset](https://huggingface.co/datasets/JudgementH/RefAny3D-Dataset) and organize it in the appropriate directory structure.
 
 ### Configure Training
 
